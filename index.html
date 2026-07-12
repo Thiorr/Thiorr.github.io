@@ -3,8 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Miguel | Mi Espacio Personal</title>
+    <title>Miguel | Perfil Profesional</title>
+    <!-- Importación de tipografía elegante -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        :root {
+            --bg-primary: #0f172a; /* Azul marino profundo */
+            --bg-secondary: #1e293b; /* Azul pizarra */
+            --accent: #0ea5e9; /* Azul cielo brillante */
+            --accent-gold: #e2e8f0; /* Blanco grisáceo elegante */
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -12,229 +26,228 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(to bottom, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
-            color: #333;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             overflow-x: hidden;
             position: relative;
+            padding: 20px;
         }
 
-        /* Fondo Tropical con Palmeras */
-        .background-decor {
+        /* Fondo dinámico y profesional (Olas abstractas) */
+        .ocean-bg {
             position: fixed;
-            bottom: 0;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             z-index: 1;
             pointer-events: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            padding: 0 20px;
-            opacity: 0.25;
+            background: radial-gradient(circle at 50% -20%, #1e3a8a 0%, var(--bg-primary) 70%);
+            opacity: 0.6;
         }
 
-        .palm-tree {
-            font-size: 12rem;
-            line-height: 1;
-            transform-origin: bottom center;
-            animation: sway 6s ease-in-out infinite alternate;
-        }
-
-        .palm-tree.right {
-            animation-delay: -3s;
-        }
-
-        @keyframes sway {
-            0% { transform: rotate(-5deg); }
-            100% { transform: rotate(5deg); }
-        }
-
-        /* Contenedor Principal */
-        .main-container {
+        /* Contenedor Principal Premium */
+        .profile-card {
             position: relative;
             z-index: 2;
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .profile-title {
-            font-size: 3rem;
-            color: #2c3e50;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-            margin-bottom: 10px;
-        }
-
-        .profile-subtitle {
-            font-size: 1.2rem;
-            color: #7f8c8d;
-            font-weight: 400;
-        }
-
-        /* Tarjeta de Biografía */
-        .bio-card {
-            background: rgba(255, 255, 255, 0.85);
+            width: 100%;
+            max-width: 650px;
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
             padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            margin-bottom: 30px;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
             text-align: center;
+            transition: transform 0.3s ease;
         }
 
+        /* Encabezado */
+        .avatar-area {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            display: inline-block;
+            background: rgba(14, 165, 233, 0.1);
+            padding: 15px;
+            border-radius: 50%;
+            border: 1px solid rgba(14, 165, 233, 0.2);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+            background: linear-gradient(to right, #ffffff, #0ea5e9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .location {
+            font-size: 0.95rem;
+            color: var(--accent);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        /* Biografía */
         .bio-text {
-            font-size: 1.25rem;
-            line-height: 1.8;
-            color: #4a5568;
-            margin-bottom: 30px;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--text-muted);
+            margin-bottom: 35px;
+            font-weight: 300;
         }
 
-        /* Grid de Pasatiempos */
-        .hobbies-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
+        .bio-text strong {
+            color: var(--text-main);
+            font-weight: 500;
         }
 
-        .hobby-item {
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-        }
-
-        .hobby-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        }
-
-        .hobby-icon {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .hobby-name {
-            font-weight: 600;
-            color: #2c3e50;
-        }
-
-        /* Instrucción Interactiva */
-        .click-hint {
-            text-align: center;
+        /* Sección de Intereses/Pasatiempos */
+        .interests-title {
             font-size: 0.9rem;
-            color: #888;
-            margin-top: 20px;
-            font-style: italic;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            font-weight: 600;
         }
 
-        /* Elementos que caen (Interactividad) */
-        .falling-element {
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 10px 18px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.25s ease;
+        }
+
+        .tag:hover {
+            background: rgba(14, 165, 233, 0.1);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            color: #ffffff;
+        }
+
+        /* Nota Interactiva Discreta */
+        .interaction-hint {
+            margin-top: 35px;
+            font-size: 0.8rem;
+            color: rgba(148, 163, 184, 0.4);
+            letter-spacing: 0.05em;
+        }
+
+        /* Partículas Interactivas */
+        .sparkle {
             position: absolute;
-            font-size: 2rem;
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
             pointer-events: none;
             z-index: 10;
-            animation: fall linear forwards;
+            box-shadow: 0 0 10px var(--accent);
+            animation: fadeOut 1s ease-out forwards;
         }
 
-        @keyframes fall {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 1;
+        @keyframes fadeOut {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            100% { transform: translate(-50%, -100%) scale(0.2); opacity: 0; }
+        }
+
+        /* Adaptabilidad (Responsive) */
+        @media (max-width: 480px) {
+            .profile-card {
+                padding: 30px 20px;
             }
-            100% {
-                transform: translateY(100vh) rotate(360deg);
-                opacity: 0;
+            h1 {
+                font-size: 1.8rem;
+            }
+            .tag {
+                width: 100%;
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Fondo de Palmeras de Coco -->
-    <div class="background-decor">
-        <div class="palm-tree">🌴</div>
-        <div class="palm-tree right">🌴</div>
-    </div>
+    <div class="ocean-bg"></div>
 
-    <div class="main-container">
-        <header>
-            <h1 class="profile-title">¡Hola, soy Miguel! 👋</h1>
-            <p class="profile-subtitle">Bienvenidos a mi rincón en la web</p>
-        </header>
+    <div class="profile-card">
+        <div class="avatar-area">🌊</div>
+        <h1>Miguel</h1>
+        <div class="location">
+            📍 La Guaira, Venezuela
+        </div>
+        
+        <p class="bio-text">
+            Apasionado por la tecnología, los entornos digitales y las buenas historias. Encuentro mi equilibrio perfecto explorando la costa, donde disfruto del mar y la tranquilidad del litoral. Dedicado a construir experiencias Web modernas, fluidas y funcionales.
+        </p>
 
-        <main>
-            <section class="bio-card">
-                <p class="bio-text">
-                    Soy de <strong>La Guaira, Venezuela</strong> 🇻🇪. Vivo donde las olas se encuentran con la costa, lo que explica mi profunda conexión con el mar. Soy un apasionado de la tecnología, las buenas historias y las cosas sencillas pero geniales de la vida.
-                </p>
-                
-                <div class="hobbies-grid">
-                    <div class="hobby-item">
-                        <span class="hobby-icon">🎮</span>
-                        <span class="hobby-name">Videojuegos</span>
-                    </div>
-                    <div class="hobby-item">
-                        <span class="hobby-icon">🏖️</span>
-                        <span class="hobby-name">La Playa</span>
-                    </div>
-                    <div class="hobby-item">
-                        <span class="hobby-icon">🏴‍☠️</span>
-                        <span class="hobby-name">Buscar Tesoros</span>
-                    </div>
-                    <div class="hobby-item">
-                        <span class="hobby-icon">🎬</span>
-                        <span class="hobby-name">Cine de Comedia</span>
-                    </div>
-                    <div class="hobby-item">
-                        <span class="hobby-icon">🍦</span>
-                        <span class="hobby-name">Helado de Vainilla</span>
-                    </div>
-                </div>
+        <div class="interests-title">Intereses y Pasatiempos</div>
+        <div class="tags-container">
+            <div class="tag"><span>🎮</span> Videojuegos</div>
+            <div class="tag"><span>🏖️</span> Vida de Playa</div>
+            <div class="tag"><span>🔍</span> Búsqueda de Tesoros</div>
+            <div class="tag"><span>🎬</span> Cine de Comedia</div>
+            <div class="tag"><span>🍦</span> Helado de Vainilla</div>
+        </div>
 
-                <p class="click-hint">✨ Haz clic en cualquier parte de la pantalla para liberar sorpresas tropicales ✨</p>
-            </section>
-        </main>
+        <p class="interaction-hint">Haz clic en cualquier lugar para interactuar</p>
     </div>
 
     <script>
-        // Lista de emojis interactivos basados en tus gustos
-        const elements = ['🥥', '🍦', '🎮', '🐚', '☀️'];
-
+        // Interactividad Profesional: Efecto de partículas de luz
         document.addEventListener('click', (e) => {
-            // Crear el elemento emoji
-            const drop = document.createElement('div');
-            drop.classList.add('falling-element');
-            
-            // Elegir uno al azar
-            const randomEmoji = elements[Math.floor(Math.random() * elements.length)];
-            drop.innerText = randomEmoji;
+            for(let i = 0; i < 5; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.classList.add('sparkle');
+                
+                // Distribución ligera alrededor del clic
+                const offsetX = (Math.random() - 0.5) * 30;
+                const offsetY = (Math.random() - 0.5) * 30;
+                
+                sparkle.style.left = `${e.clientX + offsetX}px`;
+                sparkle.style.top = `${e.clientY + offsetY}px`;
+                
+                // Variación sutil de color
+                if(Math.random() > 0.5) {
+                    sparkle.style.background = '#ffffff';
+                    sparkle.style.boxShadow = '0 0 10px #ffffff';
+                }
 
-            // Posicionar donde el usuario hizo clic
-            drop.style.left = `${e.pageX - 15}px`;
-            drop.style.top = `${e.pageY - 15}px`;
+                document.body.appendChild(sparkle);
 
-            // Duración aleatoria de la caída para que se vea más natural
-            const duration = Math.random() * 2 + 1.5; // Entre 1.5 y 3.5 segundos
-            drop.style.animationDuration = `${duration}s`;
-
-            document.body.appendChild(drop);
-
-            // Eliminar el elemento después de que termine la animación
-            setTimeout(() => {
-                drop.remove();
-            }, duration * 1000);
+                setTimeout(() => {
+                    sparkle.remove();
+                }, 1000);
+            }
         });
     </script>
 </body>
